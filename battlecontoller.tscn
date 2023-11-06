@@ -1,0 +1,212 @@
+[gd_scene load_steps=2 format=3 uid="uid://gbg26jmh4wdw"]
+
+[ext_resource type="Script" path="res://battlecontroller.gd" id="1_b2igf"]
+
+[node name="battle" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_b2igf")
+
+[node name="Start Battle" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 430.0
+offset_top = 4.0
+offset_right = 644.0
+offset_bottom = 35.0
+text = "accept battle from zooki18"
+
+[node name="move1" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 36.0
+offset_top = 214.0
+offset_right = 100.0
+offset_bottom = 245.0
+tooltip_text = "10% chance to paralyze the target."
+text = "move1"
+
+[node name="move2" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 123.0
+offset_top = 214.0
+offset_right = 187.0
+offset_bottom = 245.0
+text = "move2"
+
+[node name="move3" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 207.0
+offset_top = 214.0
+offset_right = 271.0
+offset_bottom = 245.0
+text = "move3"
+
+[node name="move4" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 295.0
+offset_top = 214.0
+offset_right = 359.0
+offset_bottom = 245.0
+text = "move 4"
+
+[node name="undo" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 52.0
+offset_top = 316.0
+offset_right = 117.0
+offset_bottom = 347.0
+text = "undo"
+
+[node name="switch 1" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 42.0
+offset_top = 283.0
+offset_right = 75.0
+offset_bottom = 314.0
+text = "1"
+
+[node name="switch 2" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 93.0
+offset_top = 283.0
+offset_right = 126.0
+offset_bottom = 314.0
+tooltip_text = "\\zx"
+text = "2"
+
+[node name="switch 3" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 153.0
+offset_top = 280.0
+offset_right = 186.0
+offset_bottom = 311.0
+text = "3"
+
+[node name="switch 4" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 213.0
+offset_top = 280.0
+offset_right = 246.0
+offset_bottom = 311.0
+text = "4"
+
+[node name="switch 5" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 275.0
+offset_top = 285.0
+offset_right = 308.0
+offset_bottom = 316.0
+text = "5"
+
+[node name="switch 6" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 332.0
+offset_top = 283.0
+offset_right = 365.0
+offset_bottom = 314.0
+text = "6"
+
+[node name="print game state" type="Button" parent="."]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 351.0
+offset_right = 94.0
+offset_bottom = 382.0
+text = "print game state"
+
+[node name="ChatLog" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 489.0
+offset_top = 64.0
+offset_right = 782.0
+offset_bottom = 265.0
+focus_mode = 2
+scroll_following = true
+selection_enabled = true
+deselect_on_focus_loss_enabled = false
+
+[node name="LineEdit" type="LineEdit" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 487.0
+offset_top = 272.0
+offset_right = 783.0
+offset_bottom = 309.0
+
+[node name="CheckBox" type="CheckBox" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 148.0
+offset_top = 249.0
+offset_right = 172.0
+offset_bottom = 273.0
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 176.0
+offset_top = 249.0
+offset_right = 216.0
+offset_bottom = 272.0
+text = "Tera"
+
+[node name="PrimarySlot2" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 295.0
+offset_top = 154.0
+offset_right = 450.0
+offset_bottom = 202.0
+
+[node name="PrimarySlot1" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 62.0
+offset_top = 157.0
+offset_right = 217.0
+offset_bottom = 205.0
+
+[node name="SecondarySlot2" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 64.0
+offset_top = 85.0
+offset_right = 219.0
+offset_bottom = 133.0
+
+[node name="SecondarySlot1" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 297.0
+offset_top = 78.0
+offset_right = 452.0
+offset_bottom = 126.0
+
+[connection signal="pressed" from="Start Battle" to="." method="_on_start_battle_pressed"]
+[connection signal="pressed" from="move1" to="." method="_on_move_1_pressed"]
+[connection signal="pressed" from="move2" to="." method="_on_move_2_pressed"]
+[connection signal="pressed" from="move3" to="." method="_on_move_3_pressed"]
+[connection signal="pressed" from="move4" to="." method="_on_move_4_pressed"]
+[connection signal="pressed" from="undo" to="." method="_on_undo_pressed"]
+[connection signal="pressed" from="switch 1" to="." method="_on_switch_1_pressed"]
+[connection signal="pressed" from="switch 2" to="." method="_on_switch_2_pressed"]
+[connection signal="pressed" from="switch 3" to="." method="_on_switch_3_pressed"]
+[connection signal="pressed" from="switch 4" to="." method="_on_switch_4_pressed"]
+[connection signal="pressed" from="switch 5" to="." method="_on_switch_5_pressed"]
+[connection signal="pressed" from="switch 6" to="." method="_on_switch_6_pressed"]
+[connection signal="pressed" from="print game state" to="." method="_on_print_game_state_pressed"]
+[connection signal="text_submitted" from="LineEdit" to="." method="_on_line_edit_text_submitted"]
+[connection signal="toggled" from="CheckBox" to="." method="_on_check_box_toggled"]

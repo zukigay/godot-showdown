@@ -1,0 +1,148 @@
+[gd_scene load_steps=3 format=3 uid="uid://c432xrqwfrfd2"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_72fmb"]
+[ext_resource type="Script" path="res://copyusernametoclip.gd" id="2_l23ur"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_72fmb")
+
+[node name="Control tab bar" type="Control" parent="."]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TabContainer" type="TabContainer" parent="Control tab bar"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 430.0
+offset_bottom = 40.0
+clip_tabs = false
+drag_to_rearrange_enabled = true
+
+[node name="main" type="Control" parent="Control tab bar/TabContainer"]
+layout_mode = 2
+
+[node name="Search_game" type="Button" parent="Control tab bar/TabContainer/main"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 191.0
+offset_right = 151.0
+offset_bottom = 236.0
+text = "Search"
+
+[node name="LadderFormatPicker" type="ItemList" parent="Control tab bar/TabContainer/main"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 20.0
+offset_top = 19.0
+offset_right = 309.0
+offset_bottom = 185.0
+item_count = 3
+item_0/text = "[Gen 9] Random Battle"
+item_1/text = "[Gen 9] Unrated Random Battle"
+item_2/text = "[Gen 9] Free-For-All Random Battle"
+
+[node name="LOGIN" type="Control" parent="Control tab bar/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="login_entry" type="LineEdit" parent="Control tab bar/TabContainer/LOGIN"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 53.0
+offset_top = 74.0
+offset_right = 143.0
+offset_bottom = 105.0
+
+[node name="Label" type="Label" parent="Control tab bar/TabContainer/LOGIN"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 48.0
+offset_right = 136.0
+offset_bottom = 74.0
+text = "USERNAME"
+
+[node name="chat" type="Control" parent="Control tab bar/TabContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control tab bar/TabContainer/chat"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 195.0
+offset_top = 24.0
+offset_right = 413.0
+offset_bottom = 332.0
+scroll_following = true
+
+[node name="LineEdit(UNUSED)" type="LineEdit" parent="Control tab bar/TabContainer/chat"]
+visible = false
+layout_mode = 0
+offset_left = 203.0
+offset_top = 346.0
+offset_right = 337.0
+offset_bottom = 385.0
+
+[node name="TextEdit" type="TextEdit" parent="Control tab bar/TabContainer/chat"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 199.0
+offset_top = 344.0
+offset_right = 338.0
+offset_bottom = 387.0
+placeholder_text = "Chat."
+
+[node name="Button" type="Button" parent="Control tab bar/TabContainer/chat"]
+layout_mode = 0
+offset_left = 343.0
+offset_top = 343.0
+offset_right = 389.0
+offset_bottom = 390.0
+text = "send"
+
+[node name="Button2" type="Button" parent="Control tab bar/TabContainer/chat"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 406.0
+offset_right = 202.0
+offset_bottom = 437.0
+text = "cheat |/accept zooki18"
+
+[node name="TabBar" type="TabBar" parent="Control tab bar"]
+visible = false
+layout_mode = 0
+offset_right = 544.0
+offset_bottom = 40.0
+drag_to_rearrange_enabled = true
+tab_count = 1
+tab_0/title = "login"
+
+[node name="USERNAME" type="Label" parent="Control tab bar"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 436.0
+offset_top = 5.0
+offset_right = 538.0
+offset_bottom = 31.0
+script = ExtResource("2_l23ur")
+
+[node name="LoginRequester" type="HTTPRequest" parent="."]
+
+[node name="LoginRequester" type="HTTPRequest" parent="LoginRequester"]
+
+[connection signal="pressed" from="Control tab bar/TabContainer/main/Search_game" to="." method="_on_search_game_pressed"]
+[connection signal="item_selected" from="Control tab bar/TabContainer/main/LadderFormatPicker" to="." method="_on_ladder_format_picker_item_selected"]
+[connection signal="text_submitted" from="Control tab bar/TabContainer/LOGIN/login_entry" to="." method="_on_login_entry_text_submitted"]
+[connection signal="text_submitted" from="Control tab bar/TabContainer/chat/LineEdit(UNUSED)" to="." method="_on_line_edit_text_submitted"]
+[connection signal="pressed" from="Control tab bar/TabContainer/chat/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control tab bar/TabContainer/chat/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="request_completed" from="LoginRequester" to="." method="_on_login_requester_request_completed"]
+[connection signal="request_completed" from="LoginRequester/LoginRequester" to="." method="_on_login_requester_request_completed"]

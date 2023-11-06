@@ -1,5 +1,6 @@
 # godot-showdown
-basic showdown client writen in godot.
+basic showdown client(Connects to play.pokemonshowdown.com) writen in godot.
+
 
 ### TODO
 - [ ] login support

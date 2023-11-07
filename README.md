@@ -9,6 +9,9 @@ basic showdown client(Connects to play.pokemonshowdown.com) writen in godot.
 - [ ] add basic double/triple support
 - [ ] show pokemon names
 - [ ] add health bars
+- [ ] teambuilder support
+- [ ] gui for show enemy mons, and there pp
+- [ ] more tooltips
 
 ### what works
 Able to start and play a battle to completion if challenged.

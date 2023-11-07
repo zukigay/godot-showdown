@@ -91,9 +91,11 @@ func process_packet(packet):
 	elif packetsplit[0] == "challstr":
 			print("whole packet" + packet)
 			CHALLSTR = packetsplit[1] + "|" + packetsplit[2]
-			#$LoginRequester.request("https://play.pokemonshowdown.com/api/upkeep?challstr=" + CHALLSTR)
+	elif packetsplit[0] == "updateuser":
+				username = packetsplit[1].right(-1)
+				print("USERNAME:" + username)
+				%USERNAME.text = username
 	else: # put a loop here
-		print("starting loop")
 		print(packet)
 		#var packet_lines = packet.split("\n")
 		#for line in packet:

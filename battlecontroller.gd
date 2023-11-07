@@ -134,6 +134,14 @@ func parse_line_by_line(packet):
 						var split2data = packetsplit[2].split(":")
 						#showdown responce (Clefable lost 16.3% of its health!)
 						write_to_log("(" + split2data[1].right(-1) + " lost " + " of it's health )\n")
+					elif packetsplit[1] == "-terastallize": # |-terastallize|p2a: Palkia|Dragon
+						var split2data = packetsplit[2].split(":")
+						write_to_log(split2data[1].right(-1) + " Terastallized into the " + packetsplit[3] + "-Type!")
+						#Palkia has Terastallized into the Dragon-type!
+					elif packetsplit[1] == "-status": # |-status|p1a: Qwilfish|slp|[from] move: Spore
+						var split2data = packetsplit[2].split(":")
+						write_to_log(split2data[1].right(-1) + " was " + packetsplit[3] + "!")
+						#Barbaracle was poisoned!
 					else:
 						print("start of split1(of 3):" + packetsplit[1] + "\n")
 						print("start of split2(of 3):" + packetsplit[2] + "\n")

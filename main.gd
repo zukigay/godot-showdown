@@ -171,6 +171,7 @@ func _on_login_entry_text_submitted(new_text): # TODO: Use "new_text" here inste
 		if error != OK:
 			push_error("An error occurred in the HTTP request.")
 
+
 func _on_login_requester_request_completed(result, response_code, headers, body):
 	var response_text = body.get_string_from_utf8()
 	response_text = response_text.erase(0,1)
@@ -196,3 +197,5 @@ func _on_login_requester_request_completed(result, response_code, headers, body)
 			print("Login failed: " + str(json_dict))
 	else:
 		push_error("HTTP Error: " + str(response_code))
+	loginusername = null
+	loginpassword = null

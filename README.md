@@ -3,7 +3,7 @@ basic showdown client(Connects to play.pokemonshowdown.com) writen in godot.
 
 
 ### TODO
-- [ ] login support
+- [x] login support
 - [ ] fixing-up-ui
 - [ ] massive code clean up
 - [ ] add basic double/triple support

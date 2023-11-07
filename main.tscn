@@ -61,7 +61,8 @@ offset_top = 74.0
 offset_right = 143.0
 offset_bottom = 105.0
 
-[node name="Label" type="Label" parent="Control tab bar/TabContainer/LOGIN"]
+[node name="login_Label" type="Label" parent="Control tab bar/TabContainer/LOGIN"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 49.0
 offset_top = 48.0

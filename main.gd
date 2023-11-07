@@ -4,6 +4,8 @@ var socket = WebSocketPeer.new()
 var connected = false
 var message
 var username
+var loginusername
+var loginpassword
 var CHALLSTR
 var rooms = []
 var battleroom = preload("res://battlecontoller.tscn")
@@ -151,16 +153,21 @@ func _on_ladder_format_picker_item_selected(index):
 
 func _on_login_entry_text_submitted(new_text): # TODO: Use "new_text" here instead of hard coded Username and password combos
 	%login_entry.clear()
-	var body = "name=bunneracount123&pass=password&challstr=" + CHALLSTR + ""
-	print(body)
-	var error =  $LoginRequester.request("https://play.pokemonshowdown.com/api/login", [], HTTPClient.METHOD_POST, body)
-	if error != OK:
-		push_error("An error occurred in the HTTP request.")
-	pass
-	#socketsendtext("|/trn " + new_text + ASSERTION)
-	#socketsendtext("|/trn " + new_text + ", " + CHALLSTR)
-	
-	pass # Replace with function body.
+	#var body = "name=bunneracount123&pass=password&challstr=" + CHALLSTR + ""
+	if loginusername == null:
+		loginusername = new_text
+		print("ented username " + new_text)
+		%login_Label.text = "PASSWORD"
+	else:
+		if loginpassword == null:
+			loginpassword = new_text
+			print("ented password " + new_text)
+			%login_Label.text = "USERNAME"
+		var body = "name=" + loginusername + "&pass=" + loginpassword + "&challstr=" + CHALLSTR + ""
+		print(body)
+		var error =  $LoginRequester.request("https://play.pokemonshowdown.com/api/login", [], HTTPClient.METHOD_POST, body)
+		if error != OK:
+			push_error("An error occurred in the HTTP request.")
 
 func _on_login_requester_request_completed(result, response_code, headers, body):
 	var response_text = body.get_string_from_utf8()
@@ -177,9 +184,9 @@ func _on_login_requester_request_completed(result, response_code, headers, body)
 		var json_dict = json_parser.data
 		print(json_dict)
 		if "curuser" in json_dict and json_dict.curuser.loggedin:
-			var username = "bunneracount123"
+			#var username = "bunneracount123"
 			var assertion = json_dict["assertion"]
-			var message = "|/trn " + username + ",0," + assertion
+			var message = "|/trn " + loginusername + ",0," + assertion
 			socketsendtext(message)
 			print("Login successful!")
 			

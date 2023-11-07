@@ -151,7 +151,6 @@ func _on_ladder_format_picker_item_selected(index):
 func _on_login_entry_text_submitted(new_text): # TODO: Use "new_text" here instead of hard coded Username and password combos
 	%login_entry.clear()
 	var body = "name=bunneracount123&pass=password&challstr=|" + CHALLSTR + "|"
-	#var body = "name=zooki18&pass=koikmKOIKM&challstr=|" + CHALLSTR + "|"
 	print(body)
 	var error =  $LoginRequester.request("https://play.pokemonshowdown.com/api/login", [], HTTPClient.METHOD_POST, body)
 	if error != OK:

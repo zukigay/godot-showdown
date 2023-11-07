@@ -142,15 +142,13 @@ func _on_button_2_pressed():
 
 
 func _on_search_game_pressed():
+	socketsendtext("|/search " + %LadderFormatPicker.get_item_text(LadderFormatPicker))
 	print("|/search " + %LadderFormatPicker.get_item_text(LadderFormatPicker))
-	
-	#var 
-	#var LadderFormatPicked = %LadderFormatPicker.get_item_at_position(new Vector2 LadderFormatPicker 0) # LadderFormatPicker.0, 0.0
-	pass
 
 
 func _on_ladder_format_picker_item_selected(index):
 	LadderFormatPicker = index
+
 
 
 func _on_login_entry_text_submitted(new_text): # TODO: Use "new_text" here instead of hard coded Username and password combos
@@ -199,3 +197,5 @@ func _on_login_requester_request_completed(result, response_code, headers, body)
 		push_error("HTTP Error: " + str(response_code))
 	loginusername = null
 	loginpassword = null
+
+

@@ -39,6 +39,7 @@ func update_poke_dict(function,data):
 	if function == "addplayer":
 		pokedict[data] = '{"examplemon":{"moves":["MOVE","PP"],"Health":"100/100"}'
 		#print(pokedict[data]["moves"])
+		print("pokedict")
 		print(pokedict["p1"]["shownmons"])
 	pass
 #func update_poke_slots():
@@ -96,6 +97,8 @@ func parse_line_by_line(packet):
 						#print("start of split3(of 3):" + packetsplit[3] + "\n")
 					elif packetsplit[1] == "switch": # switch|p2a: Toxicroak|Toxicroak, L85, F|100/100
 						var split2data = packetsplit[2].split(":")
+						opposing_mon = split2data[1].right(-1)
+						print("LOOK HERE YOU " + str(split2data) + " END OF LINE")
 						#print("PLAYER:" + split2data[0])
 						#print("MON:" + split2data[1]
 						if split2data[0] == "p1a":

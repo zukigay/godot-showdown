@@ -87,7 +87,8 @@ func process_packet(packet):
 	elif packetsplit[0] == "pm":
 		print("Them pms")
 	elif packetsplit[0] == "challstr":
-			CHALLSTR = packetsplit[2]
+			print("whole packet" + packet)
+			CHALLSTR = packetsplit[1] + "|" + packetsplit[2]
 			#$LoginRequester.request("https://play.pokemonshowdown.com/api/upkeep?challstr=" + CHALLSTR)
 	else: # put a loop here
 		print("starting loop")
@@ -150,7 +151,7 @@ func _on_ladder_format_picker_item_selected(index):
 
 func _on_login_entry_text_submitted(new_text): # TODO: Use "new_text" here instead of hard coded Username and password combos
 	%login_entry.clear()
-	var body = "name=bunneracount123&pass=password&challstr=|" + CHALLSTR + "|"
+	var body = "name=bunneracount123&pass=password&challstr=" + CHALLSTR + ""
 	print(body)
 	var error =  $LoginRequester.request("https://play.pokemonshowdown.com/api/login", [], HTTPClient.METHOD_POST, body)
 	if error != OK:
@@ -160,19 +161,6 @@ func _on_login_entry_text_submitted(new_text): # TODO: Use "new_text" here inste
 	#socketsendtext("|/trn " + new_text + ", " + CHALLSTR)
 	
 	pass # Replace with function body.
-
-#func _on_login_requester_request_completed(result, response_code, headers, body):
-	#print(result, response_code, headers, body)
-#	var textpacket = body.get_string_from_utf8().right(-1)
-	#print("\n" + textpacket)
-#	print(result, response_code, headers, textpacket)
-	#var json = JSON.parse_string(textpacket)
-	#print( "json start" + str(json) + "json end")
-	#if json["actionsuccess"] == true and json.has("curuser"):
-		#print(json["curuser"])
-		#socketsendtext("/trn USERNAME,0,ASSERTION")
-		#pass
-
 
 func _on_login_requester_request_completed(result, response_code, headers, body):
 	var response_text = body.get_string_from_utf8()
@@ -189,7 +177,7 @@ func _on_login_requester_request_completed(result, response_code, headers, body)
 		var json_dict = json_parser.data
 		print(json_dict)
 		if "curuser" in json_dict and json_dict.curuser.loggedin:
-			var username = "dummyusername"
+			var username = "bunneracount123"
 			var assertion = json_dict["assertion"]
 			var message = "|/trn " + username + ",0," + assertion
 			socketsendtext(message)

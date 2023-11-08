@@ -8,7 +8,7 @@ basic showdown client(Connects to play.pokemonshowdown.com) writen in godot.
 - [ ] massive code clean up
 - [ ] add basic double/triple support
 - [ ] show pokemon names
-- [ ] show pokemon gifs
+- [ ] show pokemon gifs/pngs
 - [ ] add health bars
 - [ ] teambuilder support
 - [ ] gui for show enemy mons, and there pp
